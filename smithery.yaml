@@ -1,0 +1,34 @@
+# Smithery configuration for PagHiper
+# Schema: https://smithery.ai/docs/build/project-config
+# Remote HTTP MCP — server hosted at https://api.mcp.ai/p_paghiper
+
+name: paghiper-mcp
+displayName: "PagHiper"
+description: >
+  Emissão de boleto bancário registrado e Pix no PagHiper com a API oficial. Gera a cobrança e devolve o código Pix copia e cola, o QR Code e a linha digitável do boleto, consulta o status do pagamento, cancela cobrança não paga, lista transações por período e status, e lista as contas bancárias de saque. Autenticação por apiKey e token, gerados na sua conta PagHiper em Minha conta, Credenciais. Valor mínimo por cobrança de R$ 3,00. Pareia com o Banco MCP, o Banco mostra o dinheiro que entrou, o PagHiper emite a cobrança.
+
+version: 0.1.0
+license: MIT
+homepage: https://github.com/mcp-dir/paghiper-mcp
+repository: https://github.com/mcp-dir/paghiper-mcp
+
+tags:
+  - paghiper
+  - brazil
+  - fin
+  - horizontal
+  - read-write
+
+# Remote HTTP MCP — sem startCommand local (servidor já hospedado)
+startCommand:
+  type: http
+  url: https://api.mcp.ai/p_paghiper
+
+auth:
+  type: oauth2
+  resourceMetadataUrl: https://api.mcp.ai/p_paghiper/.well-known/oauth-protected-resource
+  fallback:
+    type: agent-auth
+    description: >
+      Para clientes sem OAuth 2.1. O agente expõe uma tool authenticate(token).
+      Usuário gera o JWT em https://app.mcp.ai/agent-auth e cola no chat.

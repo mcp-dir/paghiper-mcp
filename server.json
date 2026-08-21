@@ -1,0 +1,17 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.mcp-dir/paghiper-mcp",
+  "title": "PagHiper",
+  "description": "Issue registered Brazilian bank slips (boleto) and Pix charges on PagHiper with the official API. Cr",
+  "version": "0.1.0",
+  "repository": {
+    "url": "https://github.com/mcp-dir/paghiper-mcp",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.mcp.ai/p_paghiper"
+    }
+  ]
+}
